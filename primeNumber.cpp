@@ -13,6 +13,19 @@ bool isPrime(int n) {
     return true;
 }
 
+// Function to find the next prime after a given number
+long long nextPrime(long long n) {
+    if (n <= 1) return 2;
+    long long prime = n;
+    bool found = false;
+    while (!found) {
+        prime++;
+        if (isPrime(prime))
+            found = true;
+    }
+    return prime;
+}
+
 //generating array of isprime 
 vector<bool> sieve(int n) {
     vector<bool> isPrime(n + 1, true);
