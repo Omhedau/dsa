@@ -1,8 +1,17 @@
 /* Member Function in C++ Classes
 There are 2 ways to define a member function:
 
-1. Inside class definition
+1. Inside class definition 
+
 2. Outside class definition
+
+class a{
+ void fun();
+};
+
+a::void fun(){
+
+}
 
 * We have to first declare the function prototype in the class definition.
 * Then we have to use the scope resolution:: operator along with the class name and function name.
@@ -13,7 +22,7 @@ Constructors are special class members which are called by the compiler every ti
 * Default Constructors: The constructor that takes no argument is called default constructor.
 * Parameterized Constructors: This type of constructor takes the arguments to initialize the data members.
 * Copy Constructors: Copy constructor creates the object from an already existing object by copying it.
-* Move Constructor: The move constructor also creates the object from an already existing object but by moving it.
+* Move Constructor: The move constructor also creates the object from an already existing object but by moving it. (optional, do not take risk saying in interview)
 -------------------------------------------------
 Destructors
 Destructor is another special member function that is called by the compiler when the scope of the object ends. It deallocates all the memory previously used by the object of the class so that there will be no memory leaks. The destructor also have the same name as the class but with tilde(~) as prefix.
@@ -64,7 +73,7 @@ This Pointer
 
 * The this pointer is a constant pointer that holds the address of the current object. It is automatically passed to all non-static member functions as a hidden argument.
 
-Why Use the this Pointer:
+Why Use the this Pointer:    
 Disambiguation:
 
 When a parameter or a local variable has the same name as a class member, the this pointer is used to distinguish between them.
@@ -98,5 +107,44 @@ void callPrint() {
 
 -------------------------------------------------------
 
+Encapsulation 
+
+Encapsulation in C++ is defined as the wrapping up of data and information in a single unit. In Object Oriented Programming, Encapsulation is defined as binding together the data and the functions that manipulate them.
+
+Abstraction
+
+Abstraction means displaying only essential information and hiding the details. Data abstraction refers to providing only essential information about the data to the outside world, hiding the background details or implementation. 
+
+Types of Abstraction:
+* Data abstraction – This type only shows the required information about the data and hides the unnecessary data.
+* Control Abstraction – This type only shows the required information about the implementation and hides unnecessary information
+
+* Can change the internal implementation of the class independently without affecting the user.
+* Helps to increase the security of an application or program as only important details are provided to the user. 
+* It reduces the complexity as well as the redundancy of the code, therefore increasing the readability. 
+
+* Abstraction: Focuses on hiding the complexity and showing only the relevant details.
+* Encapsulation: Focuses on bundling the data and methods together and controlling access to the inner workings of that object.
+ 
+--------------------------------------------------------------------
+
+Polymorphism : many forms 
+
+Types of Polymorphism
+1. Compile-time Polymorphism
+2. Runtime Polymorphism
+
+1. Compile-time Polymorphism
+
+A. Function Overloading
+When there are multiple functions with the same name but different parameters, then the functions are said to be overloaded, hence this is known as Function Overloading. Functions can be overloaded by changing the number of arguments or/and changing the type of arguments.
+
+B. Operator Overloading
+C++ has the ability to provide the operators with a special meaning for a data type, this ability is known as operator overloading. For example, we can make use of the addition operator (+) for string class to concatenate two strings. We know that the task of this operator is to add two operands. So a single operator ‘+’, when placed between integer operands, adds them and when placed between string operands, concatenates them.
+
+2. Runtime Polymorphism
+
+A. Function Overriding
+This type of polymorphism is achieved by Function Overriding. Late binding and dynamic polymorphism are other names for runtime polymorphism. 
 */
 

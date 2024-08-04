@@ -1,0 +1,177 @@
+**** common networking terms ****
+
+/* Client */
+Explanation: A client is a device or software application that requests services or resources from a server. In a typical client-server model, the client initiates communication by sending a request to the server.
+Example: A web browser acts as a client when it requests web pages from a web server.
+
+/* Server */
+Explanation: A server is a device or software that provides services, resources, or data to clients over a network. It listens for incoming requests from clients and responds accordingly.
+Example: A web server hosts websites and serves web pages to clients (browsers) when requested.
+
+/* Host */
+Explanation: A host refers to any device that has an IP address and is capable of sending and receiving data on a network. It can function as a client, server, or both.
+Example: A desktop computer, smartphone, or network printer can all be considered hosts.
+
+/* Peer */
+Explanation: In peer-to-peer (P2P) networking, a peer is a device that both provides and consumes resources without the need for a central server. Each peer has equal status and can act as both client and server. In simple terms, a peer is any device that participates in a network and has the same functionality as one or more devices in the network.
+Example: In a file-sharing network like BitTorrent, each device (peer) shares files directly with others.
+
+/* Packet */
+Explanation: A packet is a small unit of data that is transmitted over a network. It contains both the payload (actual data) and control information such as source and destination IP addresses, which help guide it to its destination.
+Example: When you send an email, it is broken down into packets that travel across the internet to the recipient’s server.
+
+/* Noise */
+Explanation: Noise refers to any unwanted interference or disturbances in a communication channel that can degrade the quality of the signal. Noise can cause errors in data transmission.
+Example: Electrical interference from a nearby device can cause noise on a network cable, leading to data corruption.
+
+
+---------------------------------------------------------------------------
+
+**** Networking Command ****
+
+1. Ping
+Explanation: The ping command is used to test connectivity between your computer and another device on a network. It sends ICMP (Internet Control Message Protocol) Echo Request packets to the target host and listens for Echo Reply packets, measuring the time taken for the round trip.
+* Usage: It helps in diagnosing network connectivity issues and checking if a specific IP address or domain is reachable.
+* Example: ping google.com checks if your computer can reach Google's server and how long it takes.
+
+2. NetStat
+Explanation: The netstat command provides detailed information about active network connections, routing tables, interface statistics, and network protocol statistics.
+* Usage: It is useful for monitoring network activity, identifying open ports, and troubleshooting network issues.
+* Example: netstat -an shows all active network connections and listening ports in numerical form.
+
+3. Ip Config
+The command IP config will display basic details about the device’s IP address configuration. Just type IP config in the Windows prompt and the IP, subnet mask and default gateway that the current device will be presented. If you have to see full information, then type on command prompt config-all and then you will see full information.
+
+4. Hostname
+Explanation: The hostname command displays the name of the current computer or network device on which it is run.
+* Usage: It is useful for quickly identifying the device's name within a network, especially when managing multiple devices.
+* Example: Running hostname will return the current computer's name, like DESKTOP-12345.
+
+5. Tracert
+Explanation: The tracert (or traceroute on Unix-based systems) command traces the path packets take from your computer to a destination IP address or domain, showing each hop along the way and how long each hop takes.
+* Usage: It is used to identify the path and measure the delay between different network points, which helps in diagnosing routing issues.
+* Example: tracert google.com will show the route taken to reach Google's server, including any intermediate routers.
+
+6. Nslookup
+Explanation: The nslookup command is used to query Domain Name System (DNS) to obtain domain name or IP address mapping. 
+* Usage: It is used for looking up the IP address associated with a domain name or vice versa.
+* Example: nslookup google.com will return the IP address associated with google.com.
+
+7. Route
+In IP networks, routing tables are used to direct packets from one subnet to another. The Route command provides the device’s routing tables. To get this result, just type route print. The Route command returns the routing table, and the user can make changes by Commands such as Route Add, Route Delete, and Route Change, which allows modifying the routing table as a requirement.
+
+8. ARP
+Explanation: The arp command is used to display or modify the ARP (Address Resolution Protocol) cache, which maps IP addresses to MAC addresses on a local network.
+* Usage: It is useful for resolving network connectivity issues by displaying or modifying the cache of resolved IP addresses to MAC addresses.
+* Example: arp -a displays the current ARP cache, showing the IP to MAC address mappings.
+
+9. PathPing
+Explanation: The pathping command combines the functions of ping and tracert to provide detailed information about the path packets take to a destination and the packet loss at each hop.
+* Usage: It is particularly useful for diagnosing network performance issues and identifying bottlenecks or points of packet loss in a network path.
+* Example: pathping google.com will analyze the route to Google's server and show packet loss and latency at each hop.
+
+--------------------------------------------------------------------------
+
+**** LAN vs MAN vs WAN ****
+
+1. LAN (Local Area Network)
+Explanation: A Local Area Network (LAN) is a network that covers a small geographical area, such as a single building, office, or home. It typically connects computers, printers, and other devices to share resources like files, internet access, and printers.
+* Usage: LANs are commonly used in office environments, schools, and homes where devices need to communicate with each other over short distances.
+
+2. MAN (Metropolitan Area Network)
+Explanation: A Metropolitan Area Network (MAN) covers a larger geographical area than a LAN, typically spanning a city or a large campus. It interconnects multiple LANs to allow communication between them over a broader area.
+* Usage: MANs are often used by organizations with multiple offices in the same city or by cities to provide public internet access or connect municipal services.
+
+3. WAN (Wide Area Network)
+Explanation: A Wide Area Network (WAN) covers a much larger geographical area, often spanning cities, countries, or even continents. It connects multiple LANs and MANs over long distances, often using leased telecommunication lines or satellite links.
+* Usage: WANs are used by large organizations to connect their offices globally or by ISPs to connect users to the internet.
+
+--------------------------------------------------------------------------
+
+**** HUB vs SWITCH ****
+Hub: Hub is a networking device which is used to transmit the signal to each port
+(except one port) to respond from which the signal was received. Hub is operated on
+a Physical layer. In this packet filtering is not available. It is of two types: 
+Active Hub, Passive Hub.
+
+Switch: Switch is a network device which is used to enable the connection
+establishment and connection termination on the basis of need. Switch is operated 
+on the Data link layer. In this packet filtering is available. It is a type of full 
+duplex transmission mode and it is also called an efficient bridge
+
+---------------------------------------------------------------------------
+
+**** Router Vs gateway ****
+
+Router
+Explanation: A router is a networking device that connects multiple networks and 
+directs data packets between them. It functions by analyzing the destination IP 
+address of a packet, determining the best route, and forwarding it to the next 
+network or device. Routers play a key role in managing traffic on the internet and 
+within local networks by ensuring data reaches its correct destination efficiently.
+
+Gateway
+Explanation: A gateway is a network node that serves as an access point to another
+network, often acting as a translator between different network protocols or 
+architectures. It can connect networks that use different protocols, such as 
+connecting a company's internal network (intranet) to the external internet.
+
+-----------------------------------------------------------------------------
+
+**** http vs https ****
+
+HTTP is the HyperText Transfer Protocol which defines the set of rules and 
+standards on how the information can be transmitted on the World Wide Web (WWW). It
+helps the web browsers and web servers for communication. It is a ‘stateless 
+protocol’ where each command is independent with respect to the previous command. 
+HTTP is an application layer protocol built upon the TCP. It uses port 80 by 
+default. HTTPS is the HyperText Transfer Protocol Secure or Secure HTTP. It is an 
+advanced and a secured version of HTTP. On top of HTTP, SSL/TLS protocol is used 
+to provide security. It enables secure transactions by encrypting the 
+communication and also helps identify network servers securely. It uses port 443 
+by default.
+
+-----------------------------------------------------------------------------
+
+**** private IP vs public IP ****
+
+The Private IP Address of a system is the IP address that is used to communicate
+within the same network. Using private IP data or information can be sent or 
+received within the same network. The router basically assigns these types of 
+addresses to the device. Unique private IP Addresses are provided to each and 
+every device that is present on the network. These things make Private IP 
+Addresses more secure than Public IP Addresses.
+
+A public IP address is an IP address that is assigned to a device directly 
+connected to the internet. It is globally unique, meaning no two devices on the 
+internet can have the same public IP address simultaneously.The Public IP Address 
+of a system is the IP address that is used to communicate outside the network. A 
+public IP address is basically assigned by the ISP (Internet Service Provider).
+
+-----------------------------------------------------------------------------
+
+**** SSL/TLS **** (if u have enough time only then read this)
+
+SSL (Secure Sockets Layer) and TLS (Transport Layer Security) are cryptographic 
+protocols designed to provide secure communication over a computer network. TLS is 
+the successor to SSL and is more secure and efficient.
+Purpose: These protocols ensure that data transmitted between a client (e.g., a web 
+browser) and a server is encrypted, authenticated, and remains integral.
+
+-----------------------------------------------------------------------------
+
+**** vpn ****
+
+A VPN (Virtual Private Network) extends a private network over a public network,
+like the internet, by creating a secure, encrypted connection (tunnel) that allows 
+users to send and receive data as if their devices were directly connected to the 
+private network. This ensures privacy, security, and access to restricted 
+resources.
+
+**** firewall ****
+
+A firewall is a network security device that monitors incoming and outgoing network
+traffic and decides whether to allow or block specific traffic based on a defined 
+set of security rules. Firewalls are a critical component of network security and 
+are typically deployed at the perimeter of a network to protect against 
+unauthorized access and cyber threats.

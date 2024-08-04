@@ -1,6 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define ll long long
+#define vi vector<int>
+#define vll vector<ll>
+#define pb push_back
+#define all(x) x.begin(), x.end()
+#define fast_io                       \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL);                    \
+    cout.tie(NULL);
+#define yes cout << "YES\n"
+#define no cout << "NO\n"
+
 // class Solution {
 // public:
 
@@ -241,29 +253,206 @@ public:
     }
 };
 
-class Solution {
+class Solution
+{
 public:
-    int trap(vector<int>& height) {
+    int trap(vector<int> &height)
+    {
         int n = height.size();
-        if (n == 0) return 0;
+        if (n == 0)
+            return 0;
 
         vector<int> left(n), right(n);
-        
+
         left[0] = height[0];
-        for (int i = 1; i < n; ++i) {
-            left[i] = max(left[i-1], height[i]);
+        for (int i = 1; i < n; ++i)
+        {
+            left[i] = max(left[i - 1], height[i]);
         }
 
-        right[n-1] = height[n-1];
-        for (int i = n-2; i >= 0; --i) {
-            right[i] = max(right[i+1], height[i]);
+        right[n - 1] = height[n - 1];
+        for (int i = n - 2; i >= 0; --i)
+        {
+            right[i] = max(right[i + 1], height[i]);
         }
 
         int water = 0;
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < n; ++i)
+        {
             water += min(left[i], right[i]) - height[i];
         }
 
         return water;
     }
 };
+
+class Solution
+{
+public:
+    bool isPrime(int n)
+    {
+        if (n <= 1)
+            return false;
+        if (n <= 3)
+            return true;
+        if (n % 2 == 0 || n % 3 == 0)
+            return false;
+        for (int i = 5; i * i <= n; i += 6)
+        {
+            if (n % i == 0 || n % (i + 2) == 0)
+                return false;
+        }
+        return true;
+    }
+    int nonSpecialCount(int l, int r)
+    {
+        long long count = 0;
+        for (int i = l; i <= r; i++)
+        {
+            if (!isPrime(sqrt(i)))
+            {
+                count++;
+            }
+        }
+    }
+};
+
+class Solution
+{
+public:
+    int numberOfSubstrings(string s)
+    {
+        int n = s.size();
+        int one = 0;
+        int count = 0;
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = i; j < n; j++)
+            {
+                if (s[j] == '1')
+                    one++;
+                if (one >= (j - i + 1-one) * (j-i+1-one))
+                {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+};
+
+void solve(){
+  ll n;
+  cin>>n;
+  string s;
+  cin>>s;
+  stack<char>st;
+  ll i = 0;
+  ll count = 0;
+  while(i<n){
+    if(st.empty() && s[i] == '_'){
+        st.push('(');
+    }else if(st.top() == '(' && s[i]!='('){
+        count += i - st.size();
+        st.pop();
+    }else{
+        st.push(s[i]);
+    }
+  }
+  cout<<count<<endl;
+}
+
+
+int main(){
+    ll t;
+    cin>>t;
+    while(t--){
+        solve();
+    }
+ return 0;
+}
+
+int gcd(int a,int b){
+    return b ?a:gcd(b,a%b);
+}
+
+void solve(int n,int m){
+    int temp = m/n;
+    int ans = 1;
+    while(temp--){
+      ans =max(ans,gcd(temp,temp+(m-temp*n)));
+    }
+    cout<<ans<<endl;
+}
+
+int main(){
+    int n,m;
+    cin>>n>>m;
+    solve(n,m);
+    return 0;
+}
+
+
+class Solution {
+public:
+    int rowFlips(vector<int>& row) {
+        int n = row.size();
+        int flips = 0;
+        for (int i = 0; i < n / 2; i++) {
+            if (row[i] != row[n - 1 - i]) {
+                row[i] = row[n-i-1];
+                flips++;
+            }
+        }
+        return flips;
+    }
+
+    int columnFlips(vector<vector<int>>& grid, int colIndex) {
+        int m = grid.size();
+        int flips = 0;
+        for (int i = 0; i < m / 2; i++) {
+            if (grid[i][colIndex] != grid[m - 1 - i][colIndex]) {
+                grid[i][colIndex] = grid[m-1-i][colIndex];
+                flips++;
+            }
+        }
+        return flips;
+    }
+
+    int minFlips(vector<vector<int>>& grid) {
+        int rowCount = 0;
+        int colCount = 0;
+        int n = grid.size();
+        int m = grid[0].size();
+        int flips = 0;
+        vector<vector<int>> dummyGrid = grid;
+
+        for (int i = 0; i < grid.size(); i++) {
+            rowCount += rowFlips(dummyGrid[i]);
+        }
+
+        for (int j = 0; j < grid[0].size(); j++) {
+            colCount += columnFlips(dummyGrid, j);
+        }
+
+        int ones = 0;
+        for(int i = 0; i<n; i++){
+            for(int j = 0; j<m; j++){
+                if(dummyGrid[i][j] == 1){
+                    ones++;
+                }
+            }
+        }
+
+        flips = rowCount + colCount;
+
+        if(ones % 4 != 0){
+            flips += ones % 4;
+        }
+
+
+        return flips;
+    }
+};
+
+
